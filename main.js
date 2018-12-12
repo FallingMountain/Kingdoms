@@ -86,7 +86,7 @@ text("ok", 200, 200);
     var onethreedead = [f, f, f, f, f, f, f, f, f, f];
     var startAttack3 = false;
     var cutscene = 0;
-    var onethreehp = [random(10,100), random(25,50), random(25,50), random(25,50), random(25,50), random(10,100),random(25,50),random(25,50),random(10,100), 100];
+    var onethreehp = [50, random(25,50), 25, 30, 35, 75, 40, 50, 95, 100];
     var onethreestart = [-50, -100, -150, -250, -225, -300, -400, -420, -440, -50];
     var remains = 1000;
     var keys = [];
@@ -98,7 +98,6 @@ keyReleased = function() {
     keys[keyCode] = false;
 };
     var level = 1;
-            var loadChoice = random(0,2);
     var loadText = ["", "Roly Jeny?????????", "Your character's name is 'The Guy'"];
     var n = 0;
       var h = hour(); 
@@ -149,7 +148,7 @@ var gabe = false;
 var ded = [-20, -20, -20, -20, -20, -20, -20, -20, -20, -20];
 var GabeStart = 0;
 var creditStart = 435;
-var colorScheme = [random(0, 255), random(0, 255), random(0, 255)];
+var colorScheme = [255, 0, 0];
 var rare = 0;
 var rareChance = 1;
 var maxEnemy = 10;
@@ -170,10 +169,9 @@ var fast = 0;
 var screen = 1;
 var levelsUnlocked = 1;
 var ok1 = 0;
-var ok = random(0.100, 0.300);
 var message = 1;
 var kingKevin = 325;
-
+var loadChoice = 1;
 var dudeY = 275;
 var padZero = function(num) {
 var numDigits = 2;
@@ -489,14 +487,7 @@ rect(83, 200, 185, 44);
 
     }
     if (screen === 2) {
-        
-        if (ok1 > 5) {
-            colorScheme = [25, 255, 62];
-            ok1 = 0;
-            ok = 0.500;
-        }
-        ok1 += 0.2;
-        percent += ok;
+        percent += 1
         
         if (percent > 100) {
             percent = 100;
@@ -507,7 +498,6 @@ rect(83, 200, 185, 44);
                 screen = 3;
             }
         }
-colorScheme = [random(0, 255),random(0, 255), random(0,255)];
         background(255, 255, 255);
         fill(colorScheme[0], colorScheme[1], colorScheme[2]);
         textFont(f, 20);
@@ -1083,7 +1073,6 @@ if (enemyHP[4] === -5) {
             xP += 5;
             ded[4] = startX[4];
                 coin += 1;
-                rareChance = random(0, 100);
                 killedEnemy += 1;
         enemyHP[4] = -6;
             }
@@ -1265,7 +1254,6 @@ if (enemyHP[8] === -5) {
             xP += 5;
         ded[8] = startX[8];
         coin += 1;
-        rareChance = random(0, 100);
         killedEnemy += 1;
         enemyHP[8] = -6;
             }
@@ -1316,7 +1304,6 @@ if (enemyHP[9] === 0) {
             xP += 15;
         ded[9] = startX[9];
                 coin += 6;
-                rareChance = random(0, 100);
                 killedEnemy += 1;
         enemyHP[9] = -1;
         if (maxEnemy === killedEnemy) {
@@ -1578,25 +1565,7 @@ fill(2, 120, 2);
 energy += 1;
 minutes += 1;
 }
-    if (keyIsPressed && key.code === 32 && dudeX > 125 && dudeX < 175) {
-        if (homeChest === true) {
-            homeChest = false;
-itemBox += 1;
-        }
-    }
-    if (itemBox === 1) {
-        message = 20;
-    }
-    if (message === 20) {
-        textSize(12);
-        fill(255, 255, 255);
-        text("You have a box. Wanna open it? Press B to do so.", 10, 325); 
-    }
-    if (keyIsPressed && key.code === 66 && itemBox > 0) {
-        boxChance = random(0, 10);
-        itemBox -= 1;
-        message = 1;
-    }
+
     if (boxChance === 1) {
         rare += 1;
         text ("OMG YOU GOT A RARE MATERIAL!!!", 10, 325);
@@ -2105,7 +2074,6 @@ rect(onetwostart[0], 260, onetwohp[0], 10);
         xP+= 5;
                 message = 12;
                 coin += 1;
-                rareChance = random(0, 100);
                 killedEnemy += 1;
            onetwodead[0] = true;
        }
@@ -2184,7 +2152,6 @@ rect(onetwostart[1], 260, onetwohp[1], 10);
         xP+= 5;
                 message = 12;
                 coin += 1;
-                rareChance = random(0, 100);
                 killedEnemy += 1;
            onetwodead[1] = true;
        }
@@ -3014,7 +2981,6 @@ rect(onethreestart[0], 260, onethreehp[0], 10);
         xP+= 5;
                 message = 12;
                 coin += 1;
-                rareChance = random(0, 100);
                 killedEnemy += 1;
            onethreedead[0] = true;
        }
@@ -3124,7 +3090,6 @@ rect(onethreestart[1], 260, onethreehp[1], 10);
         xP+= 5;
                 message = 12;
                 coin += 1;
-                rareChance = random(0, 100);
                 killedEnemy += 1;
            onethreedead[1] = true;
        }
@@ -3208,7 +3173,6 @@ rect(onethreestart[2], 260, onethreehp[2], 10);
         xP+= 5;
                 message = 12;
                 coin += 1;
-                rareChance = random(0, 100);
                 killedEnemy += 1;
            onethreedead[2] = true;
        }
@@ -3291,7 +3255,6 @@ if (onethreedead[3] === false) {
     xP+= 5;
             message = 12;
             coin += 1;
-            rareChance = random(0, 100);
             killedEnemy += 1;
        onethreedead[3] = true;
    }
@@ -3374,7 +3337,6 @@ rect(onethreestart[4], 260, onethreehp[4], 10);
     xP+= 5;
             message = 12;
             coin += 1;
-            rareChance = random(0, 100);
             killedEnemy += 1;
     onethreedead[4] = true;
    }
@@ -3460,7 +3422,6 @@ rect(onethreestart[5], 260, onethreehp[5], 10);
         xP+= 5;
                 message = 12;
                 coin += 1;
-                rareChance = random(0, 100);
                 killedEnemy += 1;
            onethreedead[5] = true;
        }
@@ -3570,7 +3531,6 @@ rect(onethreestart[6], 260, onethreehp[6], 10);
     xP+= 5;
             message = 12;
             coin += 1;
-            rareChance = random(0, 100);
             killedEnemy += 1;
     onethreedead[6] = true;
    }
@@ -3653,7 +3613,6 @@ rect(onethreestart[7], 260, onethreehp[7], 10);
     xP+= 5;
             message = 12;
             coin += 1;
-            rareChance = random(0, 100);
             killedEnemy += 1;
     onethreedead[7] = true;
    }
@@ -3734,14 +3693,13 @@ rect(onethreestart[8], 260, onethreehp[8], 10);
         text(round(onethreehp[8]), onethreestart[8],270);
    }
     else{
-       if (onethreedead[5] === false) {
-           ded[5] = onethreestart[8];
+       if (onethreedead[8] === false) {
+           ded[8] = onethreestart[8];
         xP+= 5;
                 message = 12;
                 coin += 1;
-                rareChance = random(0, 100);
                 killedEnemy += 1;
-           onethreedead[5] = true;
+           onethreedead[8] = true;
        }
        onethreestart[8] = -50;
        
@@ -3754,7 +3712,7 @@ triangle(dudeX + 10, 290, dudeX+10, 280, swordX1, 285);
         swordTimer = 60;
        
         if(dudeX < onethreestart[8] && swordX1 >= onethreestart[8]&& reload > 17-energy/10) {
-                    onetwohp[5] -= dmg;
+                    onethreehp[8] -= dmg;
                     reload = 0;
                     energy -= 1;
 }
