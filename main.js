@@ -72,6 +72,7 @@ Improved sword upgrades.
 }
 */
 //Stuff that doesn't change
+text("ok", 200, 200);
 {   
     var youdidit1 = [false, false, false];
     var armHP2 = 5;
