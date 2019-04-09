@@ -1,3 +1,1 @@
-Hi!
-This is my first program.
-I'm currently having sturggles with putting ProcessingJS on here. Can someone pls help?
+Old project, don't worry about it. My main project is Space Race Incremental, go check it out!
